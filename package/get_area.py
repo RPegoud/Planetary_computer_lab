@@ -1,7 +1,7 @@
 import rasterio as rio
+import geopandas as gpd
 
-def get_area(postal_code):
-    global df
+def get_area(postal_code: int, df: gpd.GeoDataFrame):
 
     area_of_interest = df.loc[df.code_insee == postal_code]
     area_of_interest.plot()
