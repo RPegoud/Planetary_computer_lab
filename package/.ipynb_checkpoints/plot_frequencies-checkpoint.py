@@ -19,6 +19,11 @@ def plot_frequencies(before: pystac.item.Item, after: pystac.item.Item, bbox: tu
         print("bands: {}, rows: {}, cols: {}\n".format(*viz_before.shape) + f"dtype: {viz_before.dtype}")
 
         fig, ax = plt.subplots(figsize=(10,4))
-        rio.plot.show_hist(viz_before, bins=64, stacked=False, alpha=0.5, title="Histogram")
+        rio.plot.show_hist(viz_before, bins=64, stacked=False, alpha=0.5, title="Frequencies before the fire")
+        fig.show()
+        
+        fig, ax = plt.subplots(figsize=(10,4))
+        rio.plot.show_hist(viz_after, bins=64, stacked=False, alpha=0.5, title="Frequencies after the fire")
+        fig.show()
 
         return crs, aoi_window, viz_before, viz_after
